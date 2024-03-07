@@ -1,24 +1,26 @@
 import pytest
 from main import calculate_bmi
+from unittest.mock import patch
 
 
+# WORK ON THIS TOMORROW SEE IF WE CAN FIX IT TO INCLUDE MAIN INPUTS
 @pytest.mark.parametrize("user_input, height_feet, height_inches, weight_pounds", [
     ("1", 5.0, 3.0, 150.0),
     ("2", 0, 0, 0),
     ("3", 0, 0, 0)
 ])
 def test_options(user_input, height_feet, height_inches, weight_pounds):
-    if user_input.startswith('1'):
+    if user_input.startswith("1"):
         assert height_feet == 5.0
         assert height_inches == 3.0
         assert weight_pounds == 150.0
-    elif user_input.startswith('2'):
+    elif user_input.startswith("2"):
         assert "Height in feet:"
         assert "Height in inches:"
         assert "Weight in Pounds:"
         assert "BMI:"
         assert "Category:"
-    elif user_input.startswith('3'):
+    elif user_input.startswith("3"):
         assert "EXITING PROGRAM..."
 
 

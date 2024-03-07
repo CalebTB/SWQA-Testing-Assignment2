@@ -41,9 +41,19 @@ def main():
         match user_input:
             case "1":
                 # Get user input
-                height_feet = float(input("Enter height in feet: ").strip())
-                height_inches = float(input("Enter height in inches: ").strip())
-                weight_pounds = float(input("Enter weight in pounds: ").strip())
+                height_feet_str = input("Enter height in feet: ").strip()
+                height_inches_str = input("Enter height in inches: ").strip()
+                weight_pounds_str = input("Enter weight in pounds: ").strip()
+
+                # Check if any input is empty
+                if not height_feet_str or not height_inches_str or not weight_pounds_str:
+                    print("Please enter valid numeric values for height and weight.")
+                    continue
+
+                # Convert input to float
+                height_feet = float(height_feet_str)
+                height_inches = float(height_inches_str)
+                weight_pounds = float(weight_pounds_str)
 
                 # Calculate BMI and get category
                 bmi, category = calculate_bmi(height_feet, height_inches, weight_pounds)
