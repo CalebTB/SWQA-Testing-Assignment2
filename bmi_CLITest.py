@@ -67,6 +67,17 @@ def test_bmi_underweight():
     assert actual_bmi < 18.5
     assert actual_category == "Underweight"
 
+    actual_bmi, actual_category = calculate_bmi(5, 3, 102)
+    print("\n")
+    # Print the results
+    print(f"Actual BMI: {actual_bmi:.2f}")
+    print(f"Actual Category: {actual_category}")
+    try:
+        assert actual_bmi < 18.5  # This assertion will fail
+        assert actual_category == "Underweight"
+    except AssertionError:
+        print("Exception: Test case intentionally failed!")
+
 
 def test_bmi_normalweight():
     actual_bmi, actual_category = calculate_bmi(5, 3, 125)
@@ -98,6 +109,17 @@ def test_bmi_normalweight():
     # Add assertions based on the expected values or ranges
     assert 18.5 <= actual_bmi < 24.9
     assert actual_category == "Normal weight"
+
+    actual_bmi, actual_category = calculate_bmi(5, 3, 101.5)
+    print("\n")
+    # Print the results
+    print(f"Actual BMI: {actual_bmi:.2f}")
+    print(f"Actual Category: {actual_category}")
+    try:
+        assert 18.5 <= actual_bmi < 24.9  # This assertion will fail
+        assert actual_category == "Normal weight"
+    except AssertionError:
+        print("Exception: Test case intentionally failed!")
 
 
 def test_bmi_overweight():
@@ -131,6 +153,17 @@ def test_bmi_overweight():
     assert 25 <= actual_bmi < 29.9
     assert actual_category == "Overweight"
 
+    actual_bmi, actual_category = calculate_bmi(5, 3, 210)
+    print("\n")
+    # Print the results
+    print(f"Actual BMI: {actual_bmi:.2f}")
+    print(f"Actual Category: {actual_category}")
+    try:
+        assert 25 <= actual_bmi < 29.9  # This assertion will fail
+        assert actual_category == "Overweight"
+    except AssertionError:
+        print("Exception: Test case intentionally failed!")
+
 
 def test_bmi_obese():
     actual_bmi, actual_category = calculate_bmi(5, 3, 500)
@@ -152,3 +185,14 @@ def test_bmi_obese():
     # Add assertions based on the expected values or ranges
     assert 30 <= actual_bmi
     assert actual_category == "Obese"
+
+    actual_bmi, actual_category = calculate_bmi(5, 3, 1)
+    print("\n")
+    # Print the results
+    print(f"Actual BMI: {actual_bmi:.2f}")
+    print(f"Actual Category: {actual_category}")
+    try:
+        assert 30 <= actual_bmi  # This assertion will fail
+        assert actual_category == "Obese"
+    except AssertionError:
+        print("Exception: Test case intentionally failed!")
